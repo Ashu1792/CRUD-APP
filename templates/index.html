@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center mb-4">Employee Management Dashboard</h2>
+
+        <form action="{{ url_for('add_employee') }}" method="post">
+            <div class="row">
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="name" placeholder="Enter full name" required>
+                </div>
+                <div class="col-md-5">
+                    <input type="email" class="form-control" name="email" placeholder="Enter email" required>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary w-100">Add</button>
+                </div>
+            </div>
+        </form>
+
+        <hr class="my-4">
+
+        <table class="table table-hover table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Sr.no</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for emp in allemployees %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ emp.name }}</td>
+                    <td>{{ emp.email }}</td>
+                    <td>
+                        <a href="/update/{{emp.id}}" class="btn btn-warning btn-sm">Update</a>
+                        <a href="/delete/{{emp.id}}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
