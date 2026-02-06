@@ -1,14 +1,50 @@
+{% extends 'base.html' %}
+{% block body %}
 
+<div class="container mt-5">
+    <div class="card shadow-lg p-5">
 
-<html>
-<head>
-    <title>About Us</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">       
-</head>
-<body>
-    
-        <h1>About Us</h1>
-        <p>this about page .</p>
-</html>
+        <h2 class="text-center mb-4 text-primary">About Our Employee Management System</h2>
+
+        <p class="lead text-center">
+            This CRUD Application is built using Flask and SQLAlchemy to manage employee records efficiently.
+        </p>
+
+        <hr>
+
+        <div class="row mt-4">
+
+            <div class="col-md-6">
+                <h4 class="text-success">🚀 What This App Does</h4>
+                <ul>
+                    <li>Add new employees</li>
+                    <li>View all employee records</li>
+                    <li>Update employee details</li>
+                    <li>Delete employees</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6">
+                <h4 class="text-info">🛠 Technologies Used</h4>
+                <ul>
+                    <li>Python (Flask)</li>
+                    <li>SQLAlchemy</li>
+                    <li>SQLite Database</li>
+                    <li>Bootstrap 5</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center mt-4">
+            <h5>👨‍💻 Developed By</h5>
+            <p><strong>Your Name Here</strong></p>
+            <p>This project is part of Full Stack Development learning.</p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
