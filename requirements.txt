@@ -138,7 +138,6 @@ pyttsx3==2.98
 pytweening==1.2.0
 pytz==2025.2
 pywhatkit==5.4
-pywin32==310
 PyYAML==6.0.2
 RapidFuzz==3.13.0
 ratelim==0.1.6
