@@ -3,23 +3,23 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-# REQUIRED for flash messages
 app.secret_key = "mysecretkey"
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Employee.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-with app.app_context():
-    db.create_all()
-
-
 
 # ------------------ MODEL ------------------
 class Employee(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False)
+
+
+# ✅ CREATE TABLE AFTER MODEL IS DEFINED
+with app.app_context():
+    db.create_all()
 
 
 # ------------------ HOME (READ) ------------------
@@ -88,8 +88,5 @@ def contact():
     return render_template("contact.html")
 
 
-# ------------------ MAIN ------------------
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)
